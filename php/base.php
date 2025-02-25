@@ -6,10 +6,15 @@
     <title>base page</title>
 </head>
 <body>
-    <h1><?php 
+    <nav>
+    <a href="/webserver/php/login.php" class="navbutton">Log in</a>
+    <button onclick="location.href='/login'" class="navbutton">Login</button>
+
+    </nav>
+    <?php 
         echo date('d.m.Y');
 
-        require_once "config.php";
+        require_once "../.gitignore/config.php";
         
         $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
 
@@ -66,7 +71,7 @@
         $conn->close();
 
 
-        ?></h1>
+        ?>
 
         
         <h2>Add a New user</h2>
