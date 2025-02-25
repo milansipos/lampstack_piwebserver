@@ -20,6 +20,8 @@
 
     <?php 
 
+    session_start();
+
     require_once "../.gitignore/config.php";
 
     $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
@@ -43,8 +45,10 @@
     if($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if(password_verify($password, $user['password_hash'])) {
+            $_SESSION['userid'] = $user['id'];
             echo "Login Succesful";
-            header("Location: http://192.168.50.91/webserver/php/base.php");
+            header("Location: /webserver/php/base.php");
+            exit;
         } else {
             echo "False Credentials";
         }

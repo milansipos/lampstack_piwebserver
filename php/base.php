@@ -8,10 +8,17 @@
 <body>
     <nav>
     <a href="/webserver/php/login.php" class="navbutton">Log in</a>
-    <button onclick="location.href='/login'" class="navbutton">Login</button>
 
     </nav>
     <?php 
+
+        session_start();
+
+        if(!isset($_SESSION['userid'])) {
+            header("Location: /webserver/php/login.php");
+            exit;
+        }
+
         echo date('d.m.Y');
 
         require_once "../.gitignore/config.php";
