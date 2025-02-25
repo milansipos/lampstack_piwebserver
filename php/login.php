@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +20,21 @@
         <input type="submit" Value="Log in">
     </form>
 
-    <h3>Do you not have an account yet? <a href="/webserver/php/signup.php" class="signuptext">Sign up HERE</a></h3>
+    <h3>Do you not have an account yet? <a href="signup.php" class="signuptext">Sign up HERE</a></h3>
 
-    <?php 
+
+    
+</body>
+</html>
+
+<?php 
+
+    setcookie('test_cookie', 'test_value', time() + 3600, '/');
+    if (isset($_COOKIE['test_cookie'])) {
+        echo "Cookies are working!";
+    } else {
+        echo "Cookies are not working!";
+    }
 
     session_start();
 
@@ -36,7 +52,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT password_hash FROM logins WHERE username = ?";
+    $sql = "SELECT id, username, password_hash FROM logins WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -44,11 +60,15 @@
 
     if($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        var_dump($user);
         if(password_verify($password, $user['password_hash'])) {
             $_SESSION['userid'] = $user['id'];
-            echo "Login Succesful";
-            header("Location: /webserver/php/base.php");
-            exit;
+            $_SESSION['username'] = $user['username'];
+
+            header("refresh:3; url=base.php");
+            var_dump($_SESSION);
+            echo "You are being redirected to base, if not click <a href='base.php'>here</a>";
+            exit();
         } else {
             echo "False Credentials";
         }
@@ -61,5 +81,3 @@
     $conn->close();
 
 ?>
-</body>
-</html>

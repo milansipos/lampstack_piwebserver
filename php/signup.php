@@ -49,7 +49,9 @@
 
         if($stmt->execute()) {
             echo "User registered succesfully";
-            header("Location: /webserver/php/login.php");
+            header("refresh:3; url=login.php");
+            echo "You are being redirected to the login page. If not, click <a href='login.php'>HERE</a>";
+            exit;
         } else {
             echo "Error: " . $stmt->error;
         }

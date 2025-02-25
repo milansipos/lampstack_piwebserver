@@ -10,12 +10,38 @@
     <a href="/webserver/php/login.php" class="navbutton">Log in</a>
 
     </nav>
-    <?php 
+        
+        <h2>Add a New user</h2>
+        <form method="post">
+            First name: <input type="text" name="first_name" required> <br>
+            Last name: <input type="text" name="last_name" required> <br>
+            Email: <input type="text" name="email" required> <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <h3>Delete user</h3>
+        <form method="post">
+        Which id do you want to delete? <br>
+        <input type="text" name="id" required>
+        <input type="submit" Value="Submit">
+        </form>
+
+
+        <form method="post">
+            <input type="submit" name="logout" id="logoutbutton" Value="Log out">
+        </form>
+
+        
+</body>
+</html>
+
+
+<?php 
 
         session_start();
 
-        if(!isset($_SESSION['userid'])) {
-            header("Location: /webserver/php/login.php");
+        if(!isset($_SESSION['userid']) || !isset($_SESSION['username'])) {
+            header("Location: login.php");
             exit;
         }
 
@@ -44,6 +70,15 @@
 
 
         if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+            if(isset($_POST['logout'])) {
+                session_destroy();
+                session_unset();
+                header("refresh:1;url=login.php");
+                exit;
+            }
+
+
             if (isset($_POST["first_name"]) && isset($_POST["last_name"]) && isset($_POST["email"])) {
                 $first_name = $_POST["first_name"];
                 $last_name = $_POST["last_name"];
@@ -79,22 +114,3 @@
 
 
         ?>
-
-        
-        <h2>Add a New user</h2>
-        <form method="post">
-            First name: <input type="text" name="first_name" required> <br>
-            Last name: <input type="text" name="last_name" required> <br>
-            Email: <input type="text" name="email" required> <br>
-            <input type="submit" value="Submit">
-        </form>
-
-        <h3>Delete user</h3>
-        <form method="post">
-        Which id do you want to delete? <br>
-        <input type="text" name="id" required>
-        <input type="submit" Value="Submit">
-        </form>
-
-</body>
-</html>
