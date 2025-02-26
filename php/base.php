@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>base page</title>
+    <link rel="stylesheet" href="../styling/base.css">
 </head>
 <body>
     <nav>

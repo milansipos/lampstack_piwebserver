@@ -1,39 +1,31 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../styling/login.css">
 </head>
 <body>
 
+    <div class="loginbox">
+        <h1>Please sign in.</h1>
 
-    <h1>This is the Login Page!</h1>
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" class="logintext" required> <br>
+            <input type="password" name="password" placeholder="Your password" class="logintext" required> <br>
+            <input type="submit" Value="Login" class="loginbutton">
+        </form> 
 
-    <form method="post">
-        <input type="text" name="username" placeholder="Username" required> <br>
-        <input type="password" name="password" placeholder="Your password" required>
-        <input type="submit" Value="Log in">
-    </form>
+        <h3>Or if you haven't yet, you can sign up <a href="signup.php" class="signuptext">here.</a></h3>
 
-    <h3>Do you not have an account yet? <a href="signup.php" class="signuptext">Sign up HERE</a></h3>
-
-
-    
-</body>
-</html>
-
-<?php 
+        <?php 
 
     setcookie('test_cookie', 'test_value', time() + 3600, '/');
     if (isset($_COOKIE['test_cookie'])) {
-        echo "Cookies are working!";
+        #echo "Cookies are working!";
     } else {
-        echo "Cookies are not working!";
+        #echo "Cookies are not working!";
     }
 
     session_start();
@@ -60,20 +52,20 @@
 
     if($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        var_dump($user);
+        #var_dump($user);
         if(password_verify($password, $user['password_hash'])) {
             $_SESSION['userid'] = $user['id'];
             $_SESSION['username'] = $user['username'];
 
-            header("refresh:3; url=base.php");
-            var_dump($_SESSION);
-            echo "You are being redirected to base, if not click <a href='base.php'>here</a>";
+            header("refresh:2; url=base.php");
+            #var_dump($_SESSION);
+            echo "<div class='redirectionsuccesful'>You are being redirected to base, if not click <a href='base.php' class='signuptextnew'>here</a></div>";
             exit();
         } else {
-            echo "False Credentials";
+            echo "<div class='redirectionfail'>False Credentials</div>";
         }
     } else {
-        echo "No such User.";
+        echo "<div class='redirectionfail'>No such User.</div>";
     }
 }
 
@@ -81,3 +73,7 @@
     $conn->close();
 
 ?>
+    </div>
+</body>
+</html>
+
