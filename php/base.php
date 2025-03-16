@@ -1,3 +1,7 @@
+<?php
+include 'session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,8 @@
 <body>
     <nav>
     <a href="/webserver/php/login.php" class="navbutton">Log in</a>
+    <a href="reserve.php">Reservations</a>
+    <a href="blogpage.php">Blog page</a>
 
     </nav>
         
@@ -38,13 +44,6 @@
 
 
 <?php 
-
-        session_start();
-
-        if(!isset($_SESSION['userid']) || !isset($_SESSION['username'])) {
-            header("Location: login.php");
-            exit;
-        }
 
         echo date('d.m.Y');
 
