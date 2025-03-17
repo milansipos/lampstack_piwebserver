@@ -1,5 +1,7 @@
 <?php
 include 'session.php';
+include 'profilemenu.php';
+
 ?>
 
 <!DOCTYPE html>

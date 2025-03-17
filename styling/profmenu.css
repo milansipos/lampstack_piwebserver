@@ -1,0 +1,79 @@
+
+.box {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 180px;
+    height: 150px;
+    max-height: 45px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    background-color: rgb(3, 90, 3);
+    text-align: center;
+    border-radius: 20px;
+    color: rgba(240, 248, 255, 0.834);
+    font-family: "Monaco", monospace;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.profiletop {
+    font-size: 18px;
+    padding-bottom: 10px !important;
+    padding-top: 8px !important;
+    padding: 3px;
+    display: inline-block;
+    cursor: pointer;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+
+}
+
+.menu {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: 0.5s;
+}
+
+.menu.show {
+    visibility: visible;
+    opacity: 1;
+    max-height: 150px;
+    transition: 0.5s;
+}
+
+.menu.show .menupoint {
+    opacity : 1;
+    transition: 0.5s;
+}
+
+.menupoint {
+    padding-bottom: 7px !important;
+    padding:5px;
+    font-size: 15px !important;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.menupoint:hover {
+    transform: scale(1.1) !important;
+    color: rgb(255, 255, 255) !important;
+    transition: 0.5s;
+}
+
+.profiletop:hover {
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+}
+
+#logoutbutton {
+    background: none;  
+    border: none;      
+    color: inherit;    
+    font: inherit;     
+    padding: 0;        
+    cursor: pointer;   
+    transition: 0.5s;
+
+}

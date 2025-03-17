@@ -57,7 +57,7 @@
             $_SESSION['userid'] = $user['id'];
             $_SESSION['username'] = $user['username'];
 
-            header("refresh:2; url=base.php");
+            header("refresh:0.2; url=base.php");
             #var_dump($_SESSION);
             echo "<div class='redirectionsuccesful'>You are being redirected to base, if not click <a href='base.php' class='signuptextnew'>here</a></div>";
             exit();

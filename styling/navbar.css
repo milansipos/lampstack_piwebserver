@@ -1,0 +1,55 @@
+
+
+.navi2 {
+    background-color: rgb(3, 90, 3);
+    border-radius: 20px;
+    font-family: "Monaco", monospace;
+    height: 53px;
+    max-width: 40px;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    transition: 1s ease-in;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbutton {
+    color: rgba(240, 248, 255, 0.834);
+    text-decoration: unset;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.navbutton.show {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.navbutton:hover {
+    transform: scale(1.05) !important;
+    color: rgb(255, 255, 255) !important;
+    transition: 0.5s;
+}
+
+.toggle {
+    background: none;
+    border: none;
+    font: inherit;     
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5s;
+    color: rgba(240, 248, 255, 0.834);
+    font-size: 22px;
+    margin-left: 12px;
+
+}
+
+.toggle:hover {
+    color: rgb(255, 255, 255) !important;
+    transition: 0.5s;
+}
