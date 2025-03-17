@@ -40,20 +40,16 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "<h2>" . $row['title'] . "</h2> <p>posted by " . $row['username'] . "<br>";
-        echo "<p>Posted: " . $row['created_at'] . "</p>"; 
-        echo "<p>" . $row['content'] . "</p>";
-        if($row['created at'] != $row['updated_at']) {
-            echo "<p>(Edited: " . $row['updated_at'] . ")</p>";
+        echo "<h2 class='blogtitle'>" . $row['title'] . "</h2> <p class='posterusername'>posted by " . $row['username'] . "<br>";
+        echo "<p class='posttime'>Posted: " . $row['created_at'] . "</p>"; 
+        echo "<p class='postcontent'>" . $row['content'] . "</p>";
+        if($row['created_at'] != $row['updated_at']) {
+            echo "<p class='postedit'>(Edited: " . $row['updated_at'] . ")</p>";
         }
     }
 } else {
     echo "no blogs posted yet :P";
 }
-
-
-
-
 
 ?>
 </body>
