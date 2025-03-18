@@ -1,0 +1,165 @@
+body {
+    background-color: skyblue;
+    font-family: "Monaco", monospace;
+
+}
+
+body.night {
+    background-color: rgb(12, 12, 174);
+}
+
+.newbody {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.box1 {
+    background: linear-gradient(30deg, #faebd7, white);
+    width: 500px;
+    height:200px;
+    border-radius: 35px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.box2 {
+    background: linear-gradient(30deg, white, #faebd7);
+    width: 500px;
+    height:180px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    line-height: 1.8;
+    color: rgb(84, 84, 84);
+    margin-bottom: 50px;
+
+}
+
+.box3 {
+    color: rgb(84, 84, 84);
+    background: linear-gradient(170deg, white, #faebd7);
+    width: 500px;
+    height:160px;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 2.4;
+}
+
+.searchbox {
+    color: rgb(84, 84, 84);
+    background: linear-gradient(170deg, white, #faebd7);
+    width: 500px;
+    height:75px;
+    border-radius: 35px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+.searchtext {
+    text-align: center;
+    font-size: 17px;
+    color: rgb(84,84,84);
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 15px;
+    font-family: "Monaco", monospace;
+
+}
+
+.submit {
+    text-align: center;
+    font-size: 17px;
+    color: rgb(84,84,84);
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+    font-family: "Monaco", monospace;
+    transition:0.5s;
+    cursor: pointer;
+
+}
+
+.submit:hover {
+    background-color: white;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    background-color: rgb(211, 211, 211);
+    transition:0.5s;
+}
+
+
+.sunpicture {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 320px;
+    bottom : 0px;
+    transition: 1s;
+}
+
+.sunpicture:hover {
+    transform: rotate(180deg);
+    transition: 1s;
+}
+
+.degree {
+margin: 40px;
+font-size: 48px;
+margin-bottom: 20px !important;
+}
+
+.city {
+margin-left: 35px;
+color: rgb(84, 84, 84);
+}
+
+.windpic {
+    width: 55px;
+    height: 55px;
+    line-height: 0 !important;
+    margin-bottom: -10px;
+}
+
+.temppic {
+    width: 40px;
+    height: 40px;
+    line-height: 0 !important;
+    margin-bottom: -3px;
+}
+
+.humidpic {
+    width: 55px;
+    height: 55px;
+    line-height: 0 !important;
+    margin-bottom: -5px;
+}
+
+.wind {
+    margin-bottom: 35px;
+}
+
+.humid {
+    margin-bottom: 35px;
+
+}
+
+.info {
+    font-weight: 800;
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.desc {
+    line-height: 1.5;
+}

@@ -1,5 +1,6 @@
 
 .box {
+    z-index: 10;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -26,6 +27,7 @@
     display: inline-block;
     cursor: pointer;
     transition: opacity 0.5s ease, max-height 0.5s ease;
+    z-index: 10;
 
 }
 
@@ -34,6 +36,7 @@
     opacity: 0;
     max-height: 0;
     transition: 0.5s;
+    z-index: 10;
 }
 
 .menu.show {
@@ -60,6 +63,8 @@
     transform: scale(1.1) !important;
     color: rgb(255, 255, 255) !important;
     transition: 0.5s;
+    cursor: pointer;
+
 }
 
 .profiletop:hover {

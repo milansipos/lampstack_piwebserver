@@ -1,6 +1,7 @@
 <?php
 include 'session.php';
 include 'profilemenu.php';
+include 'navbar.php';
 
 ?>
 
@@ -13,12 +14,6 @@ include 'profilemenu.php';
     <link rel="stylesheet" href="../styling/base.css">
 </head>
 <body>
-    <nav>
-    <a href="/webserver/php/login.php" class="navbutton">Log in</a>
-    <a href="reserve.php">Reservations</a>
-    <a href="blogpage.php">Blog page</a>
-
-    </nav>
         
         <h2>Add a New user</h2>
         <form method="post">

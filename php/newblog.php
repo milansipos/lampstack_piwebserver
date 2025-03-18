@@ -1,6 +1,8 @@
 <?php
 include 'session.php';
 include 'profilemenu.php';
+include 'navbar.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -9,30 +11,15 @@ include 'profilemenu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post a new blog</title>
+    <link rel="stylesheet" href="../styling/newblog.css">
 </head>
 <body>
-    <nav>
-    Back to <a href="base.php">base</a>
-    <a href="blogpage.php">Blogs</a>
-    </nav>
     <h1>What's on your mind?</h1>
-
-    <form method="post">
-        <input type="hidden" name="newpost">
-        <input type="text" name="title" placeholder="What do you want the title to be?" required>
-        <input type="text" name="content" placeholder="Here you can enter your thoughts." required>
-        <input type="submit" value="Submit">
-    </form>
-
-
     
-
 <?php 
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
-    echo date("d.m.Y");
 
 require_once "../.gitignore/config.php";
         
@@ -115,33 +102,52 @@ if($_SERVER['REQUEST_METHOD'] === "POST") {
 $sql2 = "SELECT title, username, content, created_at, updated_at FROM blogs WHERE username = '$username'";
 $result = $conn->query($sql2);
 
+echo "<div class='blog-container'>";
+
+        echo "<form method='post'>";
+        echo "<input type=\"hidden\" name=\"newpost\">";
+        echo "<h2 class='blogtitle'>Want to post something?</h2>";
+        echo "<input type=\"text\" class='posttitle' name=\"title\" placeholder=\"What do you want the title to be?\" required>";
+        echo "<p class='posterusername'>posted by you</p>";
+        echo "<p class='posttime'>Posted: anywhere in the near future</p>"; 
+        echo "<input type=\"text\" name=\"content\" class='postcontent1' placeholder=\"Here you can enter your thoughts.\" required> <br>";
+        echo "<input type=\"submit\" value=\"Submit\" class='newblogbutton'>";
+        echo "</div>";
+        echo "</form>";
+
+
 if($result->num_rows > 0) {
-    echo "<div>What you already posted:</div>";
+    echo "<div class='alrpost'>What you already posted:</div>";
     while($row = $result->fetch_assoc()) {
-        echo "<h2 class='blogtitle'>" . $row['title'] . "</h2> <p class='posterusername'>posted by " . $row['username'] . "<br>";
-        echo "<p class='posttime'>Posted: " . $row['created_at'] . "</p>"; 
-        echo "<p class='postcontent'>" . $row['content'] . "</p>";
-        if($row['created_at'] != $row['updated_at']) {
-            echo "<p class='postedit'>(Edited: " . $row['updated_at'] . ")</p>";
+        echo "<div class='blog-container'>";
+        echo "<h2 class='blogtitle'>" . htmlspecialchars($row['title']) . "</h2>";
+        echo "<p class='posterusername'>posted by " . htmlspecialchars($row['username']) . "</p>";
+        echo "<p class='posttime'>Posted: " . htmlspecialchars($row['created_at']) . "</p>"; 
+        echo "<p class='postcontent'>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
+        
+        if ($row['created_at'] != $row['updated_at']) {
+            echo "<p class='postedit'>(Edited: " . htmlspecialchars($row['updated_at']) . ")</p>";
         }
-        echo "<input type='button' value='Edit' onclick='showmenu(\"formi" . $row['title'] . "\")'>
-            <input type='button' value='Delete this post' onclick='showmenu(\"del" . $row['title'] . "\")'>
+        echo "<input type='button' value='Edit' onclick='showmenu(\"formi" . $row['title'] . "\")' class='button'>
+            <input type='button' value='Delete this post' onclick='showmenu(\"del" . $row['title'] . "\")' class='button'>
             <form method='post' class='form' id='del" . $row['title'] . "'>
                 <input type='hidden' name='delete'>
                 <input type='text' name='createdat1' value='" . $row['created_at'] . "'class='formhide'>
                 <input type='text' name='title1' value='" . $row['title'] . "'class='formhide'>
-                <input type='text' name='confirmdelete' placeholder='Enter the title again to confirm!' required>
-                <input type='submit' value='Delete post'>
+                <input type='text' name='confirmdelete' placeholder='Enter the title again to confirm!' class='finaltext' required>
+                <input type='submit' value='Delete post' class='button'>
             </form>
 
             <form method='post' class='form' id='formi" . $row['title'] . "'>
                 <input type='hidden' name='edit'>
-                <input type='text' name='newcontent' value='" . $row['content'] . "' required>
-                <input type='text' name='titleconfirm' placeholder='Enter the title again to confirm!' required>
+                <input type='text' class=\"auto-grow\" name='newcontent' placeholder=\"Type new content here...\"></textarea>
+                <input type='text' name='titleconfirm' placeholder='Enter the title again to confirm!' class='finaltext' required>
                 <input type='text' name='createdat' value='" . $row['created_at'] . "'class='formhide'>
                 <input type='text' name='title' value='" . $row['title'] . "'class='formhide'>
-                <input type='submit' value='Done'>
+                <input type='submit' value='Done' class='button'>
             </form>
+        </div>
+
         <style>
             .form {
                 display : none;

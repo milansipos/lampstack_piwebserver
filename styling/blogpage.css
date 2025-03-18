@@ -1,0 +1,66 @@
+body {
+    background: url("../img/background.jpeg");
+}
+
+.newblogbutton {
+    background-color:rgb(191, 193, 117);
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 600;
+}
+
+.newblogbutton:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    
+}
+
+h1 {
+    width : 60%;
+    padding: 10px;
+    margin: auto;
+    background: #e1e1e1;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(70, 70, 70);
+
+}
+
+.blog-container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #e1e1e1;
+    border-radius: 10px;
+}
+
+.blogtitle {
+    font-size: 24px;
+    color: rgb(70, 70, 70);
+    margin-bottom: 5px;
+}
+
+.posterusername {
+    font-style: italic;
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+}
+
+.posttime {
+    font-size: 12px;
+    color: rgb(70, 70, 70);
+}
+
+.postcontent {
+    padding: 10px;
+    background: rgb(235, 235, 235);
+    border-left: 5px solid rgb(191, 193, 117);
+}
+
+.postedit {
+    font-size: 12px;
+    color: rgb(247, 92, 92);
+}

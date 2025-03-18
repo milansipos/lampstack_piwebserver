@@ -1,0 +1,149 @@
+
+body {
+    background: url("../img/background.jpeg");
+}
+
+h1 {
+    width : 60%;
+    padding: 10px;
+    margin: auto;
+    background: #e1e1e1;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(70, 70, 70);
+
+}
+.postcontent1 {
+    padding: 10px;
+    background: rgb(235, 235, 235);
+    border-left: 5px solid rgb(189, 191, 116) !important;
+    border: 0px;
+    width: 500px;
+    height: 30px;
+    margin-bottom: 15px;
+    text-align:left !important;
+}
+
+.alrpost {
+    width : 60%;
+    padding: 10px;
+    margin: auto;
+    background: #e1e1e1;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(70, 70, 70);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.posttitle {
+    background: rgb(235, 235, 235);
+    border: 0px;
+    padding: 10px;
+    width: 300px;
+    height: 25px;
+    font-size: 18px;
+
+    margin-top: 15px;
+}
+
+.newblogbutton {
+    background-color:rgb(191, 193, 117);
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 600;
+    margin: 6px;
+}
+
+.newblogbutton:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+}
+
+
+.button {
+    background-color:rgb(191, 193, 117);
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 600;
+    margin: 6px;
+}
+
+.button:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+}
+
+.blog-container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #e1e1e1;
+    border-radius: 10px;
+}
+
+.blogtitle {
+    font-size: 24px;
+    color: rgb(70, 70, 70);
+    margin-bottom: 5px;
+}
+
+.posterusername {
+    font-style: italic;
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+}
+
+.posttime {
+    font-size: 12px;
+    color: rgb(70, 70, 70);
+}
+
+.postcontent {
+    padding: 10px;
+    background: rgb(235, 235, 235);
+    border-left: 5px solid rgb(191, 193, 117);
+}
+
+.postedit {
+    font-size: 12px;
+    color: rgb(247, 92, 92);
+}
+
+.finaltext {
+    border: 0px;
+    margin: 2px;
+    width: 200px;
+    height: 30px;
+    padding: 4px;
+    text-align: center;
+}
+
+.finalcontent {
+    border: 0px;
+    margin: 2px;
+    padding: 4px;
+    width: 200px;
+    height: 30px;
+    margin-top:30px;
+}
+
+.auto-grow {
+    width: 100%;
+    min-height: 50px;
+    max-height: 300px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    border: 0px;
+    overflow: hidden;   
+    box-sizing: border-box;
+}

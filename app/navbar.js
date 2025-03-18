@@ -8,7 +8,7 @@ function togglemenu() {
             buttons.forEach(button => {
                 button.classList.add("show");  // Add the 'show' class to buttons after 1 second
             });
-        }, 1600);
+        }, 1200);
     } else {
         box.style.maxWidth = "40px";
         buttons.forEach(element => {

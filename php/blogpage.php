@@ -10,19 +10,12 @@ include 'navbar.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs</title>
+    <link rel="stylesheet" href="../styling/blogpage.css">
 </head>
 <body>
-    <nav>
-        Back to base page <a href="base.php">here</a>
-        Want to create a new post? Click <a href="newblog.php">here</a>
-    </nav>
-
 <h1>All blogs are displayed here</h1>
-    
 
 <?php 
-
-echo date("d.m.Y");
 
 require_once "../.gitignore/config.php";
         
@@ -40,17 +33,29 @@ if ($conn->connect_error) {
 $sql = "SELECT title, username, content, created_at, updated_at, username FROM blogs";
 $result = $conn->query($sql);
 
+        echo "<div class='blog-container'>";
+        echo "<h2 class='blogtitle'>Want to post something?</h2>";
+        echo "<p class='posterusername'>posted by you</p>";
+        echo "<p class='posttime'>Posted: anywhere in the near future</p>"; 
+        echo "<p class='postcontent'>whatever you want here to stay</p>";
+        echo "<button onclick=\"window.location.href='newblog.php'\" class='newblogbutton'>New post</button>";
+        echo "</div>";
+
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "<h2 class='blogtitle'>" . $row['title'] . "</h2> <p class='posterusername'>posted by " . $row['username'] . "<br>";
-        echo "<p class='posttime'>Posted: " . $row['created_at'] . "</p>"; 
-        echo "<p class='postcontent'>" . $row['content'] . "</p>";
-        if($row['created_at'] != $row['updated_at']) {
-            echo "<p class='postedit'>(Edited: " . $row['updated_at'] . ")</p>";
+        echo "<div class='blog-container'>";
+        echo "<h2 class='blogtitle'>" . htmlspecialchars($row['title']) . "</h2>";
+        echo "<p class='posterusername'>posted by " . htmlspecialchars($row['username']) . "</p>";
+        echo "<p class='posttime'>Posted: " . htmlspecialchars($row['created_at']) . "</p>"; 
+        echo "<p class='postcontent'>" . nl2br(htmlspecialchars($row['content'])) . "</p>";
+        
+        if ($row['created_at'] != $row['updated_at']) {
+            echo "<p class='postedit'>(Edited: " . htmlspecialchars($row['updated_at']) . ")</p>";
         }
+        echo "</div>";
     }
 } else {
-    echo "no blogs posted yet :P";
+    echo "<div class='blog-container'>You haven't posted anything yet!</div>";
 }
 
 ?>

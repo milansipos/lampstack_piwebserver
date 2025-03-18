@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="../styling/navbar.css">
     <script src="../app/navbar.js"></script>
 </head>
 <body>
     
-        <nav class="navi2" id="navi2">
+        <nav class="navi2" id="navi2" style="max-width: 40px;">
             <button class="toggle" id="toggle" onclick="togglemenu()">»</button>
             <a href="base.php" class="navbutton">Home</a>
             <a href="login.php" class="navbutton">Log in</a>
