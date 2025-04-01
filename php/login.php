@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +25,19 @@
 
         <?php 
 
-    setcookie('test_cookie', 'test_value', time() + 3600, '/');
-    if (isset($_COOKIE['test_cookie'])) {
-        #echo "Cookies are working!";
-    } else {
-        #echo "Cookies are not working!";
-    }
+    // setcookie('test_cookie', 'test_value', time() + 3600, '/');
+    // if (isset($_COOKIE['test_cookie'])) {
+    //     #echo "Cookies are working!";
+    // } else {
+    //     #echo "Cookies are not working!";
+    // }
 
-    session_start();
 
     require_once "../.gitignore/config.php";
 
     $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
-
+    //$conn = new mysqli('db', 'user', 'userpassword', 'lamp_db');
+    
     if($conn->connect_error) {
         echo "connection failed";
         exit;

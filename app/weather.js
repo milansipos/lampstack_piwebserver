@@ -2,7 +2,7 @@ function night() {
     var currentHour = new Date().getHours();
     var body = document.body;
     var img = document.getElementById("img");
-    if(currentHour < 6 || currentHour >= 18) {
+    if(currentHour < 6 || currentHour >= 20) {
         body.classList.add("night");
         img.src = "../img/moon.png";
         img.style.width = "150px";
