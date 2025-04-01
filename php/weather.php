@@ -21,11 +21,8 @@ include "navbar.php";
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 
-    require_once "../.gitignore/config.php";
+    require_once "../ignore/config.php";
         
-
-
-
     $api = $OPENWEATHER_API_KEY;
     $lat = 46.84;
     $lon = 16.84;
